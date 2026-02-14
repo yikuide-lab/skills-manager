@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ai-skills-manager"
-version = "4.0.0"
+version = "4.1.0"
 description = "GUI application for discovering, downloading, and managing AI Agent Skills"
 readme = "README.md"
 requires-python = ">=3.10"
