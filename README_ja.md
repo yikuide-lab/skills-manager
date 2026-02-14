@@ -1,6 +1,6 @@
 # ⚡ Skills Manager
 
-AI Agent スキルの検索・ダウンロード・管理を行う GUI アプリケーション — Claude Code、Kiro CLI、Gemini CLI へワンクリックデプロイ。
+AI Agent スキルの検索・ダウンロード・管理を行う GUI アプリケーション — Claude Code、Kiro CLI、Gemini CLI、Codex CLI、OpenCode、Roo Code、Droid、Grok CLI へワンクリックデプロイ。
 
 外部依存なし — Python 標準ライブラリのみ使用（tkinter + sqlite3）。
 
@@ -32,7 +32,7 @@ skills-manager
 - **スキャントラッカー**: リアルタイムスキャン進捗ダイアログ、スクロール可能な結果ログ
 - **プロキシサポート**: HTTP/HTTPS プロキシ設定可能
 - **ダークテーマ**: Catppuccin Mocha スタイルのインターフェース、ツールチップ付き
-- **AI ツールへデプロイ**: インストール済みスキルを Claude Code、Kiro CLI、Gemini CLI にシンボリックリンク
+- **AI ツールへデプロイ**: インストール済みスキルを Claude Code、Kiro CLI、Gemini CLI、Codex CLI、OpenCode、Roo Code、Droid、Grok CLI にシンボリックリンク
 - **キーボードショートカット**: Ctrl+F（検索）、Ctrl+R（更新）、Ctrl+I（インストール済み）、Escape（クリア）
 
 ## AI ツールへのスキルデプロイ
@@ -52,6 +52,11 @@ python3 deploy_skills.py --clean      # デプロイ済みシンボリックリ�
 | Claude Code | `~/.claude/skills/` |
 | Kiro CLI | `~/.kiro/skills/` |
 | Gemini CLI | `~/.gemini/skills/` |
+| Codex CLI | `~/.codex/skills/` |
+| OpenCode | `~/.config/opencode/skills/` |
+| Roo Code | `~/.roo/skills/` |
+| Droid (Factory) | `~/.factory/skills/` |
+| Grok CLI | `~/.grok/skills/` |
 
 スキルはシンボリックリンクでデプロイ（コピーではない）、同期を維持し追加ディスク容量不要。
 
@@ -85,7 +90,7 @@ skills_manager/
 ├── gui.py              # tkinter GUI（ページネーション、スキャントラッカー、ツールチップ）
 ├── skill_core.py       # コアロジック（取得、インストール、スキャン、プロキシ）
 ├── db.py               # SQLite ストレージバックエンド（ページクエリ）
-├── deploy_skills.py    # Claude/Kiro/Gemini へスキルデプロイ
+├── deploy_skills.py    # Claude/Kiro/Gemini/Codex/OpenCode/Roo/Droid/Grok へスキルデプロイ
 ├── skillscan.py        # セキュリティスキャナー（14 パターン、4 カテゴリ）
 ├── logger.py           # ロギングシステム
 ├── version_manager.py  # バックアップとロールバック

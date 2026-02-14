@@ -1,6 +1,6 @@
 # ⚡ Skills Manager
 
-A GUI application for discovering, downloading, and managing AI Agent Skills — with one-click deployment to Claude Code, Kiro CLI, and Gemini CLI.
+A GUI application for discovering, downloading, and managing AI Agent Skills — with one-click deployment to Claude Code, Kiro CLI, Gemini CLI, Codex CLI, OpenCode, Roo Code, Droid, and Grok CLI.
 
 No external dependencies — Python standard library only (tkinter + sqlite3).
 
@@ -32,7 +32,7 @@ skills-manager
 - **Scan tracker**: Real-time scan progress dialog with scrollable result log
 - **Proxy support**: Configurable HTTP/HTTPS proxy for network access
 - **Dark theme GUI**: Clean, modern Catppuccin Mocha interface with tooltips
-- **Deploy to AI tools**: Symlink installed skills to Claude Code, Kiro CLI, Gemini CLI
+- **Deploy to AI tools**: Symlink installed skills to Claude Code, Kiro CLI, Gemini CLI, Codex CLI, OpenCode, Roo Code, Droid, Grok CLI
 - **Keyboard shortcuts**: Ctrl+F (search), Ctrl+R (refresh), Ctrl+I (installed), Escape (clear)
 
 ## Deploy Skills to AI Tools
@@ -52,6 +52,11 @@ Supported targets:
 | Claude Code | `~/.claude/skills/` |
 | Kiro CLI | `~/.kiro/skills/` |
 | Gemini CLI | `~/.gemini/skills/` |
+| Codex CLI | `~/.codex/skills/` |
+| OpenCode | `~/.config/opencode/skills/` |
+| Roo Code | `~/.roo/skills/` |
+| Droid (Factory) | `~/.factory/skills/` |
+| Grok CLI | `~/.grok/skills/` |
 
 Skills are symlinked (not copied), so they stay in sync and use no extra disk space.
 
@@ -85,7 +90,7 @@ skills_manager/
 ├── gui.py              # tkinter GUI (pagination, scan tracker, tooltips)
 ├── skill_core.py       # Core logic (fetch, install, scan, proxy)
 ├── db.py               # SQLite storage backend (paginated queries)
-├── deploy_skills.py    # Deploy skills to Claude/Kiro/Gemini
+├── deploy_skills.py    # Deploy skills to Claude/Kiro/Gemini/Codex/OpenCode/Roo/Droid/Grok
 ├── skillscan.py        # Security scanner (14 patterns, 4 categories)
 ├── logger.py           # Logging system
 ├── version_manager.py  # Backup & rollback

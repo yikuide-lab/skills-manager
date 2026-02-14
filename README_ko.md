@@ -1,6 +1,6 @@
 # ⚡ Skills Manager
 
-AI Agent 스킬을 검색, 다운로드, 관리하는 GUI 애플리케이션 — Claude Code, Kiro CLI, Gemini CLI에 원클릭 배포.
+AI Agent 스킬을 검색, 다운로드, 관리하는 GUI 애플리케이션 — Claude Code, Kiro CLI, Gemini CLI, Codex CLI, OpenCode, Roo Code, Droid, Grok CLI에 원클릭 배포.
 
 외부 의존성 없음 — Python 표준 라이브러리만 사용 (tkinter + sqlite3).
 
@@ -32,7 +32,7 @@ skills-manager
 - **스캔 트래커**: 실시간 스캔 진행 대화상자, 스크롤 가능한 결과 로그
 - **프록시 지원**: HTTP/HTTPS 프록시 설정 가능
 - **다크 테마**: Catppuccin Mocha 스타일 인터페이스, 툴팁 포함
-- **AI 도구 배포**: 설치된 스킬을 Claude Code, Kiro CLI, Gemini CLI에 심볼릭 링크
+- **AI 도구 배포**: 설치된 스킬을 Claude Code, Kiro CLI, Gemini CLI, Codex CLI, OpenCode, Roo Code, Droid, Grok CLI에 심볼릭 링크
 - **단축키**: Ctrl+F (검색), Ctrl+R (새로고침), Ctrl+I (설치됨), Escape (초기화)
 
 ## AI 도구에 스킬 배포
@@ -52,6 +52,11 @@ python3 deploy_skills.py --clean      # 배포된 심볼릭 링크 제거
 | Claude Code | `~/.claude/skills/` |
 | Kiro CLI | `~/.kiro/skills/` |
 | Gemini CLI | `~/.gemini/skills/` |
+| Codex CLI | `~/.codex/skills/` |
+| OpenCode | `~/.config/opencode/skills/` |
+| Roo Code | `~/.roo/skills/` |
+| Droid (Factory) | `~/.factory/skills/` |
+| Grok CLI | `~/.grok/skills/` |
 
 스킬은 심볼릭 링크로 배포되어 동기화 유지, 추가 디스크 공간 불필요.
 
@@ -85,7 +90,7 @@ skills_manager/
 ├── gui.py              # tkinter GUI (페이지네이션, 스캔 트래커, 툴팁)
 ├── skill_core.py       # 핵심 로직 (가져오기, 설치, 스캔, 프록시)
 ├── db.py               # SQLite 저장소 (페이지 쿼리)
-├── deploy_skills.py    # Claude/Kiro/Gemini에 스킬 배포
+├── deploy_skills.py    # Claude/Kiro/Gemini/Codex/OpenCode/Roo/Droid/Grok에 스킬 배포
 ├── skillscan.py        # 보안 스캐너 (14개 패턴, 4개 카테고리)
 ├── logger.py           # 로깅 시스템
 ├── version_manager.py  # 백업 및 롤백

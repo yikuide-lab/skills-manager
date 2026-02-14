@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Deploy installed skills to Claude Code, Kiro CLI, and Gemini CLI skill directories.
+Deploy installed skills to AI coding tool skill directories.
 
 Each tool expects: <skills_dir>/<skill-name>/SKILL.md (+ optional scripts/, references/)
 This script finds the real SKILL.md inside nested installed_skills dirs and creates
@@ -9,8 +9,13 @@ symlinks in each tool's skills directory.
 Usage:
     python3 deploy_skills.py                    # detect & deploy to all available tools
     python3 deploy_skills.py --target claude    # deploy to Claude only
-    python3 deploy_skills.py --target gemini    # deploy to Gemini only
     python3 deploy_skills.py --target kiro      # deploy to Kiro only
+    python3 deploy_skills.py --target gemini    # deploy to Gemini only
+    python3 deploy_skills.py --target codex     # deploy to Codex CLI only
+    python3 deploy_skills.py --target opencode  # deploy to OpenCode only
+    python3 deploy_skills.py --target roo       # deploy to Roo Code only
+    python3 deploy_skills.py --target droid     # deploy to Droid (Factory) only
+    python3 deploy_skills.py --target grok      # deploy to Grok CLI only
     python3 deploy_skills.py --dry-run          # preview without changes
     python3 deploy_skills.py --clean            # remove deployed symlinks
 """
@@ -25,9 +30,14 @@ INSTALLED_DIR = BASE_DIR / "installed_skills"
 
 # Tool skill directories (global)
 TARGETS = {
-    "claude": Path.home() / ".claude" / "skills",
-    "kiro":   Path.home() / ".kiro" / "skills",
-    "gemini": Path.home() / ".gemini" / "skills",
+    "claude":   Path.home() / ".claude" / "skills",
+    "kiro":     Path.home() / ".kiro" / "skills",
+    "gemini":   Path.home() / ".gemini" / "skills",
+    "codex":    Path.home() / ".codex" / "skills",
+    "opencode": Path.home() / ".config" / "opencode" / "skills",
+    "roo":      Path.home() / ".roo" / "skills",
+    "droid":    Path.home() / ".factory" / "skills",
+    "grok":     Path.home() / ".grok" / "skills",
 }
 
 
@@ -108,7 +118,7 @@ def clean(target_name: str, target_dir: Path, skills: dict[str, Path], dry_run: 
 
 def main():
     parser = argparse.ArgumentParser(description="Deploy skills to AI tool directories")
-    parser.add_argument("--target", choices=["claude", "kiro", "gemini"], help="Deploy to specific tool only")
+    parser.add_argument("--target", choices=list(TARGETS.keys()), help="Deploy to specific tool only")
     parser.add_argument("--dry-run", action="store_true", help="Preview without making changes")
     parser.add_argument("--clean", action="store_true", help="Remove deployed symlinks")
     args = parser.parse_args()
