@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skills-manager"
+version = "4.0.0"
+description = "GUI application for discovering, downloading, and managing AI Agent Skills"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.scripts]
+skills-manager = "gui:main"
+
+[project.gui-scripts]
+skills-manager-gui = "gui:main"
+
+[tool.setuptools]
+py-modules = ["gui", "skill_core", "db", "logger", "version_manager", "deploy_skills", "skillscan"]
+
+[tool.setuptools.package-data]
+"*" = ["registry.json"]
